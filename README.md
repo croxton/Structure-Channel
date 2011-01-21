@@ -23,6 +23,7 @@ Structure Channel takes a more direct approach by subclassing the Channel module
 ## Installation
 
 1. Copy the folder structure_channel to ./system/expressionengine/third_party/
+2. In the Control Panel, go to Add-Ons > Modules and click the Install link for Structure Channel
 
 
 ## Parameters
