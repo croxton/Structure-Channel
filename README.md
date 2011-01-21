@@ -27,30 +27,30 @@ Structure Channel takes a more direct approach by subclassing the Channel module
 
 ## Parameters
 
-Exactly the same as the Channel module, with one additional parameter 'pagination_param'. This determines the parameter name used in the pagination query string. By default this is 'p'.
+Exactly the same as the Channel module, with one additional (optional) parameter 'pagination_param'. This determines the parameter name used in the pagination query string. By default this is 'p'.
 
 
 ## Sample usage
 
-{exp:structure_channel:entries channel="my_channel" disable="member_data|categories" dynamic="no" limit="10" paginate="bottom" paginate_base="/my/structure/page/?"}
+	{exp:structure_channel:entries channel="my_channel" disable="member_data|categories" dynamic="no" limit="10" paginate="bottom" paginate_base="/my/structure/page/?" pagination_param="page"}
 
-	{title} <br />
+		{title} <br />
 
-	{paginate} 
-		<p>Page {current_page} of {total_pages}</p>
+		{paginate} 
+			<p>Page {current_page} of {total_pages}</p>
 		
-		<p>{pagination_links}</p>
+			<p>{pagination_links}</p>
 		
-		{if previous_page}
-		<a href="{auto_path}">Previous Page</a> &nbsp;
+			{if previous_page}
+			<a href="{auto_path}">Previous Page</a> &nbsp;
+			{/if}
+
+			{if next_page}
+			<a href="{auto_path}">Next Page</a>
+			{/if}	
+		{/paginate}	
+
+		{if no_results}
+			Sorry, no entries were found.
 		{/if}
-
-		{if next_page}
-		<a href="{auto_path}">Next Page</a>
-		{/if}	
-	{/paginate}	
-
-	{if no_results}
-		Sorry, no entries were found.
-	{/if}
-{/exp:structure_channel:entries}
+	{/exp:structure_channel:entries}
