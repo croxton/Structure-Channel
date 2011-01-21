@@ -32,7 +32,7 @@ Exactly the same as the Channel module, with one additional (optional) parameter
 
 ## Sample usage
 
-	{exp:structure_channel:entries channel="my_channel" disable="member_data|categories" dynamic="no" limit="10" paginate="bottom" paginate_base="/my/structure/page/?" pagination_param="page"}
+	{exp:structure_channel:entries channel="my_channel" disable="member_data|categories" dynamic="no" limit="10" paginate="bottom" paginate_base="/my/structure/uri/?" pagination_param="page"}
 
 		{title} <br />
 
