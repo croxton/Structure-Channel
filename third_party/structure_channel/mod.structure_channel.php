@@ -7,9 +7,14 @@
  *
  * @package             Structure Channel
  * @author              Mark Croxton (mcroxton@hallmark-design.co.uk)
- * @copyright			Copyright (c) 2010 Hallmark Design
+ * @copyright			Copyright (c) 2011 Hallmark Design
  * @link                http://hallmark-design.co.uk
  */
+
+if ( ! class_exists('Channel'))
+{
+	include APPPATH.'modules/channel/mod.channel'.EXT;
+}
 
 class Structure_channel extends Channel
 {
