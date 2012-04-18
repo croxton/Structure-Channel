@@ -2,23 +2,19 @@
 
 * Author: [Mark Croxton](http://hallmark-design.co.uk/)
 
-## Version 1.0.0
+## Version 1.0.1
 
-* Requires: ExpressionEngine 2 and the [Structure](http://buildwithstructure.com/) module
+* Requires: ExpressionEngine 2.4+
+
+* Optional: [Structure](http://buildwithstructure.com/) module
 
 ## Description
 
-Structure Channel is a replacement for the Channel module for use with Structure.
-Specifically, it can be used to output pagination links instead of Structure's {exp:structure:paginate} tag.
+Structure Channel is a drop-in replacement for the Channel module which generates query string pagination (?p=1) rather than using URI segments /P1/
 
 ## Why on earth would you want to do this? 
 
-Firstly, because Structure's solution - {exp:structure:paginate} - is rather inefficient. It works by parsing the wrapped {exp:channel:entries} tag and reconstructing the SQL query it runs in order to get the total count and thus generate pagination links. This adds unnecessary overhead to the template.
-
-Secondly, the use of nested tags disables the use of {if no_results} {/if} inside your {exp:channel:entries} tag.
-
-Structure Channel takes a more direct approach by subclassing the Channel module itself and overloading the create_pagination method to generate pagination that works with Structure URIs. You can now use pagination in exactly the same way as the Channel module, and {if no_results} {/if} will work as expected.
-
+If you are using [Structure](http://buildwithstructure.com/) or the Pages module with [Freebie](http://github.com/averyvery/Freebie) or .htaccess mod_rewrite rules to create custom URLs, then you will quickly find that the native pagination doesn't work.
 
 ## Installation
 
@@ -28,12 +24,24 @@ Structure Channel takes a more direct approach by subclassing the Channel module
 
 ## Parameters
 
-Exactly the same as the Channel module, with one additional (optional) parameter 'pagination_param'. This determines the parameter name used in the pagination query string. By default this is 'p'.
+Exactly the same as the Channel module, with one additional (optional) parameter:
+
+### pagination_param = ""
+
+This determines the parameter name used in the pagination query string. By default this is 'p'.
 
 
 ## Sample usage
 
-	{exp:structure_channel:entries channel="my_channel" disable="member_data|categories" dynamic="no" limit="10" paginate="bottom" paginate_base="/my/structure/uri/?" pagination_param="page"}
+	{exp:structure_channel:entries 
+		channel="my_channel" 
+		disable="member_data|categories" 
+		dynamic="no" 
+		limit="10" 
+		paginate="bottom" 
+		paginate_base="/my/custom/uri/?" 
+		pagination_param="page"
+	}
 
 		{title} <br />
 

@@ -5,15 +5,15 @@
  *
  * This file must be in your /system/third_party/structure_channel directory of your ExpressionEngine installation
  *
- * @package             Structure Channel
- * @author              Mark Croxton (mcroxton@hallmark-design.co.uk)
- * @copyright			Copyright (c) 2010 Hallmark Design
- * @link                http://hallmark-design.co.uk
+ * @package		ExpressionEngine
+ * @subpackage	Structure Channel
+ * @author		Mark Croxton (mcroxton@hallmark-design.co.uk)
+ * @link		http://hallmark-design.co.uk
  */
 
 class Structure_channel_upd {
 
-	var $version		= '1.0.0';
+	var $version		= '1.0.1';
 	
 	/**
 	 * Constructor
@@ -78,7 +78,6 @@ class Structure_channel_upd {
 	{
 		return FALSE;
 	}
-
 }
 // END CLASS
 
