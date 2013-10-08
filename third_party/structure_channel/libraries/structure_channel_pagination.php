@@ -20,6 +20,18 @@ class Structure_channel_pagination extends CI_Pagination {
 		$this->query_string_segment = $pagination_param;
 		$this->page_query_string = TRUE;
 	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Instantiate a new pagination object
+	 * 
+	 * @return object 
+	 */
+	public function create($classname)
+ 	{
+  		return new Pagination_object($classname);
+ 	}
 	
 	// --------------------------------------------------------------------
 	
